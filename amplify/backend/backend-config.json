@@ -1,0 +1,49 @@
+{
+  "api": {
+    "deletedis": {
+      "dependsOn": [
+        {
+          "attributes": [
+            "Name",
+            "Arn"
+          ],
+          "category": "function",
+          "resourceName": "deletedislambda"
+        }
+      ],
+      "providerPlugin": "awscloudformation",
+      "service": "API Gateway"
+    }
+  },
+  "function": {
+    "deletedislambda": {
+      "build": true,
+      "providerPlugin": "awscloudformation",
+      "service": "Lambda"
+    }
+  },
+  "hosting": {
+    "S3AndCloudFront": {
+      "providerPlugin": "awscloudformation",
+      "service": "S3AndCloudFront"
+    }
+  },
+  "parameters": {
+    "AMPLIFY_function_deletedislambda_deploymentBucketName": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "deletedislambda"
+        }
+      ]
+    },
+    "AMPLIFY_function_deletedislambda_s3Key": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "deletedislambda"
+        }
+      ]
+    }
+  }
+}
